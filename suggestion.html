@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	function countWords(){
+		string = document.getElementById("suggestion").value;
+		var count = 0;
+		words = string.split(" ");
+		for (i=0; i <words.length; i++){
+			if (words[i] != ""){
+				count += 1;
+			};
+		};
+		document.getElementById("aftersubmission").innerHTML = 
+			"You entered " + count + " words for suggestion."; 
+	};
+
+</script>
+<style>
+body {
+    background-color: #FFCCFF;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #CC6633;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+}
+
+p {
+    font-size: 20px;
+}
+</style>
+	<title>Tomomi's Suggestion Submission form</title>
+</head>
+
+<body>
+	<h1>Tomomi's Suggestion Submission form</h1>
+	<p>Please fill in these information and click submit at the buttom of the page.</p>
+
+	<form>
+	<!-- text input -->
+	First name: <br />
+	<input type="text" name="firstName"><br />
+	Last name: <br />
+	<input type="text" name="lastName"><br /><br />
+	
+	<!-- checkbox or radio button group -->
+	Select your gender: <br />
+	<input type="radio" name="gender" value="male" checked>Male<br />
+	<input type="radio" name="gender" value="female">Female<br /><br />
+
+	<!-- a dropdown or scrollable list -->
+	Select the countries that you have visited: <br />
+	<select name="country">
+		<option value="canada">Canada</option>
+		<option value="mexico">Mexico</option>
+		<option value="brazil">Brazil</option>
+		<option value="chile">Chile</option>
+		<option value="venezuela">Venezuela</option>
+	</select>
+	<br /><br />
+	<!-- a textarea -->
+	Please suggest us which country we need to visit in our next trip and why:<br />
+	<textarea id="suggestion" name="suggestion"rows="20" cols="50">Your suggestion</textarea>
+	<br />
+	<br />
+	<input type="button" value="suggest" onclick="countWords()">
+	<br />
+	<p id="aftersubmission"></p>
+	</form>
+</body>
+</html>
+
