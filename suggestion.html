@@ -2,6 +2,18 @@
 <html>
 <head>
 <script type="text/javascript">
+	//Count the number characters entered in the textarea
+	function countChar(){
+		var string = document.getElementById("suggestion").value;
+
+		// Reference: http://stackoverflow.com/questions/7349312/how-to-count-the-number-of-letters-in-a-random-string
+
+		// Replace the space with no space and get character length
+		var charLength = string.replace(/\s/g, "").length;  
+
+		document.getElementById("aftersubmission2").innerHTML = 
+			"You entered " + charLength + " characters for suggestion."; 
+	};
 	//Count the number words entered in the textarea
 	function countWords(){
 		string = document.getElementById("suggestion").value;
@@ -68,9 +80,11 @@ p {
 	<textarea id="suggestion" name="suggestion"rows="20" cols="50">Your suggestion</textarea>
 	<br />
 	<br />
-	<input type="button" value="suggest" onclick="countWords()">
+	<input type="button" value="Suggest and Get Word Count" onclick="countWords()">
+	<input type="button" value="Suggest and Get Character Count" onclick="countChar()">
 	<br />
 	<p id="aftersubmission"></p>
+	<p id="aftersubmission2"></p>
 	</form>
 </body>
 </html>
